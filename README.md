@@ -12,4 +12,4 @@ Also in the docs directory is an initial set of analysis models - class diagrams
 Your first steps should be to get your team set up with this code, ensure you can build it and run it. The ant script should work, and you should also be able to run it directly from within Eclipse or the command line or from the .bat/.sh scripts provided.
 
 Enjoy!
-Dr. Gar
+Dr. Garyyyyyy
