@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
+import java.net.URI;
+import java.awt.Desktop;
 
 import javax.swing.JFileChooser;
 
@@ -93,41 +95,47 @@ public class Util {
       return "<![CDATA["+s+"]]>";
     }
     
+    /* Edit made by Aaron Lajom
+     * This section should open up links from App.java in your default browser
+     * Code commented out below was before my changes*/
     public static void runBrowser(String url) {
-        if (!checkBrowser())
-            return;
+        //if (!checkBrowser())
+            //return;
         String commandLine = MimeTypesList.getAppList().getBrowserExec()+" "+url;
         System.out.println("Run: " + commandLine);
-        try {
-            /*DEBUG*/
-            Runtime.getRuntime().exec(commandLine);
-        }
-        catch (Exception ex) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.getDesktop().browse(new URI(url));
+            }catch (Exception ex) {
             new ExceptionDialog(ex, "Failed to run an external web-browser application with commandline<br><code>"
                     +commandLine+"</code>", "Check the application path and command line parameters " +
                     		"(File-&gt;Preferences-&gt;Resource types).");
+            
+            	return;	
+            }
         }
     }
     
     public static boolean checkBrowser() {
-        AppList appList = MimeTypesList.getAppList();
-        String bpath = appList.getBrowserExec();
-        if (bpath != null)
-            if (new File(bpath).isFile())
-                return true;
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileHidingEnabled(false);
-        chooser.setDialogTitle(Local.getString("Select the web-browser executable"));
-        chooser.setAcceptAllFileFilterUsed(true);
-        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        /*java.io.File lastSel = (java.io.File) Context.get("LAST_SELECTED_RESOURCE_FILE");
-        if (lastSel != null)
-            chooser.setCurrentDirectory(lastSel);*/
-        if (chooser.showOpenDialog(App.getFrame()) != JFileChooser.APPROVE_OPTION)
-            return false;
-        appList.setBrowserExec(chooser.getSelectedFile().getPath());
-        CurrentStorage.get().storeMimeTypesList();
-        return true;
+        	AppList appList = MimeTypesList.getAppList();
+        	String bpath = appList.getBrowserExec();
+        	if (bpath != null)
+        		if (new File(bpath).isFile())
+        			return true;
+        	JFileChooser chooser = new JFileChooser();
+        	chooser.setFileHidingEnabled(false);
+        	chooser.setDialogTitle(Local.getString("Select the web-browser executable"));
+        	chooser.setAcceptAllFileFilterUsed(true);
+        	chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        	/*java.io.File lastSel = (java.io.File) Context.get("LAST_SELECTED_RESOURCE_FILE");
+        	if (lastSel != null)
+            	chooser.setCurrentDirectory(lastSel);*/
+        	if (chooser.showOpenDialog(App.getFrame()) != JFileChooser.APPROVE_OPTION)
+        		return false;
+        	appList.setBrowserExec(chooser.getSelectedFile().getPath());
+        	CurrentStorage.get().storeMimeTypesList();
+        	return true;
     }
     
     public static String getHoursFromMillis(long ms) {
