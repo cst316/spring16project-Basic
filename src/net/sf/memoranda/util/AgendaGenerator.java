@@ -132,7 +132,9 @@ public class AgendaGenerator {
 	 * @return
 	 */
 	
-	//This is the function that handles tasks in the agenda 
+	//This is the function that handles tasks in the agenda
+	//Update on what Im trying to fix, it seems that auto message only appears late on single dated events
+	//Meaning it is specific to assignments that start and end on the same day
 	
 	private static String renderTask(Project p, CalendarDate date, TaskList tl, Task t, int level, Collection expandedTasks) {
 		String s = "";
@@ -210,8 +212,14 @@ public class AgendaGenerator {
 			Calendar dateCal = date.getCalendar();
 			int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
 					(dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
+			
+			/*int numOfWeeks = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
+					(dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));*/
 			String days = "";
 			if(numOfDays > 0) {
+				/*if(numOfDays >= 7){
+					your assignment is due in + numOfWeeks + week(s)
+				} */
 				if (numOfDays > 1) {
 					days = Local.getString("in")+" "+numOfDays+" "+Local.getString("day(s)");		        
 				}
