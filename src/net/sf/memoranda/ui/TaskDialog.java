@@ -63,6 +63,11 @@ public class TaskDialog extends JDialog {
     // added by rawsushi
     JTextField effortField = new JTextField();
     JTextArea descriptionField = new JTextArea();
+    //JTextField taskTypeField = new JTextField();
+    /* Aaron's notes:
+     * The above line needs ui implementation, probably in this java file. 
+     * See how effortField is implemented in this java file.
+     */
     JScrollPane descriptionScrollPane = new JScrollPane(descriptionField);
     
 //    Border border7;
@@ -205,7 +210,8 @@ public class TaskDialog extends JDialog {
         gbCon.weighty = 3;
         descriptionScrollPane.setPreferredSize(new Dimension(375,96));
         gbLayout.setConstraints(descriptionScrollPane,gbCon);
-
+        
+        //This is what we should be looking at for UI implementation
         jLabelEffort.setMaximumSize(new Dimension(100, 16));
         jLabelEffort.setMinimumSize(new Dimension(60, 16));
         jLabelEffort.setText(Local.getString("Est Effort(hrs)"));

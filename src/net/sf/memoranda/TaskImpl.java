@@ -27,6 +27,11 @@ public class TaskImpl implements Task, Comparable {
 
     private Element _element = null;
     private TaskList _tl = null;
+    /* Aaron's Pseudo Code:
+     * 
+     * private String taskType;
+     * needs getter and setter 
+     */
 
     /**
      * Constructor for DefaultTask.
