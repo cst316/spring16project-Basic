@@ -100,7 +100,8 @@ public class EventNotificationDialog extends JFrame {
   void jButton1_actionPerformed(ActionEvent e) {
        this.dispose();
   }
-  //plays a sound when to notify
+  
+  //method to play sound for event notification
   private void playSoundNotification() {
 		if (Configuration.get("NOTIFY_SOUND").equals("DISABLED"))
 			return;
