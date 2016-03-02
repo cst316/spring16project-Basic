@@ -55,7 +55,7 @@ public class TaskDialog extends JDialog {
     JPanel jPanel8 = new JPanel(new GridBagLayout());
     Border border3;
     Border border4;
-//    Border border5;
+//    Border border5; 
 //    Border border6;
     JPanel jPanel2 = new JPanel(new GridLayout(3, 2));
     JTextField todoField = new JTextField();
@@ -63,6 +63,7 @@ public class TaskDialog extends JDialog {
     // added by rawsushi
     JTextField effortField = new JTextField();
     JTextArea descriptionField = new JTextArea();
+    JTextField taskTypeField = new JTextField();
     //JTextField taskTypeField = new JTextField();
     /* Aaron's notes:
      * The above line needs ui implementation, probably in this java file. 
@@ -91,7 +92,9 @@ public class TaskDialog extends JDialog {
     JButton setEndDateB = new JButton();
     //JPanel jPanel3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanel3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jPanel5 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelEffort = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jPanelTType = new JPanel(new FlowLayout(FlowLayout.LEFT));
 //    JPanel jPanelNotes = new JPanel(new FlowLayout(FlowLayout.LEFT));
     
     JButton setNotifB = new JButton();
@@ -99,6 +102,7 @@ public class TaskDialog extends JDialog {
     JLabel jLabel7 = new JLabel();
     // added by rawsushi
     JLabel jLabelEffort = new JLabel();
+    JLabel jLabelTType = new JLabel(); //Used in task types
     JLabel jLabelDescription = new JLabel();
 	JCheckBox chkEndDate = new JCheckBox();
 	
@@ -217,6 +221,13 @@ public class TaskDialog extends JDialog {
         jLabelEffort.setText(Local.getString("Est Effort(hrs)"));
         effortField.setBorder(border8);
         effortField.setPreferredSize(new Dimension(30, 24));
+        
+        //Task Types
+        jLabelTType.setMaximumSize(new Dimension(100, 16));
+        jLabelTType.setMinimumSize(new Dimension(60, 16));
+        jLabelTType.setText(Local.getString("Type: "));
+        taskTypeField.setBorder(border8);
+        taskTypeField.setPreferredSize(new Dimension(60, 24));
 
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));                
@@ -353,12 +364,16 @@ public class TaskDialog extends JDialog {
         jPanel1.add(setEndDateB, null);
         // added by rawsushi
         jPanel2.add(jPanelEffort, null);
+        jPanel5.add(jPanelTType, null);
         jPanelEffort.add(jLabelEffort, null);
         jPanelEffort.add(effortField, null);
+        jPanelTType.add(jLabelTType, null);
+        jPanelTType.add(taskTypeField, null);
 
         jPanel2.add(jPanel4, null);
         jPanel4.add(priorityCB, null);
         jPanel2.add(jPanel3, null);
+        jPanel2.add(jPanel5, null);
         
         jPanel3.add(setNotifB, null);
         
