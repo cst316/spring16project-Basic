@@ -1,3 +1,11 @@
+/*
+ * [US0020] Here is the pseudo code for tool tips.
+ * 
+ * foo.setToolTipText("tool tip text");
+ * 
+ * Where "foo" is the object you'd like to attach the tool tip.
+ */
+
 package net.sf.memoranda.ui;
 
 import java.io.File;
