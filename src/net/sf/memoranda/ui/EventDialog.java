@@ -86,6 +86,8 @@ public class EventDialog extends JDialog implements WindowListener {
         try {
             jbInit();
             pack();
+            //This tool tip i created makes a tool tip on the ok button on the event dialog box.
+            okB.setToolTipText("This is where you set the beginning of your event");
         }
         catch (Exception ex) {
             new ExceptionDialog(ex);

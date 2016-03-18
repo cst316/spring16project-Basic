@@ -1,9 +1,12 @@
 /*
- * [US0020] Here is the pseudo code for tool tips.
+ * [US-20] Here is the pseudo code for tool tips.
  * 
- * foo.setToolTipText("tool tip text");
+ * psuedButton = new JButton("Psuedo Button");
+ * psuedoButton.setToolTipText("This is a tool tip.");
  * 
- * Where "foo" is the object you'd like to attach the tool tip.
+ * foo is not just the object that you attatch the tool tip to. Foo needs to be a jButton
+ * or something from the Jframe library. of course we don't need to make the button just attatch the tool tip. The code is placed where the panels and frames are drawn in the program
+ * this preferences dialog file would only be used for making an option to turn tool tips off. The code would not be implemented in this file.
  */
 
 package net.sf.memoranda.ui;
