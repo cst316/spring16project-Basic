@@ -101,6 +101,7 @@ public class EventNotificationDialog extends JFrame {
        this.dispose();
   }
   
+  //method to play sound for event notification
   private void playSoundNotification() {
 		if (Configuration.get("NOTIFY_SOUND").equals("DISABLED"))
 			return;
@@ -116,7 +117,7 @@ public class EventNotificationDialog extends JFrame {
 		if (Configuration.get("NOTIFY_SOUND").equals("DEFAULT"))
 			url =
 				EventNotificationDialog.class.getResource(
-					"resources/beep.wav");
+					"resources/Ring_Notification.wav");
 		else
 			try {
 				url =
@@ -125,7 +126,7 @@ public class EventNotificationDialog extends JFrame {
 			} catch (Exception ex) {
 				url =
 					EventNotificationDialog.class.getResource(
-						"resources/beep.wav");
+						"resources/Ring_Notification.wav");
 			}
 		try {
 			AudioClip clip = Applet.newAudioClip(url);
