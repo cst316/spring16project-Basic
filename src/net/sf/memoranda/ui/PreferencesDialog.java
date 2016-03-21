@@ -228,7 +228,7 @@ public class PreferencesDialog extends JDialog {
 		minGroup.add(minTaskbarRB);
 		minTaskbarRB.setSelected(true);
 		minTaskbarRB.setText(Local.getString("Minimize to taskbar"));
-		minTaskBarRB.setToolTipText("This will minimize memoranda to the taskbar.");
+		minTaskbarRB.setToolTipText("This will minimize memoranda to the taskbar.");
 		minTaskbarRB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				minTaskbarRB_actionPerformed(e);
