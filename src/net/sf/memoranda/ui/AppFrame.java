@@ -310,7 +310,7 @@ public class AppFrame extends JFrame {
         });        
         
         jMenuHelpAbout.setText(Local.getString("Faqs"));
-        jMenuHelpAbout.setToolTipText(Local.getString("About emoranda"));
+        jMenuHelpAbout.setToolTipText(Local.getString("About Memoranda"));
         jMenuHelpAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpAbout_actionPerformed(e);
