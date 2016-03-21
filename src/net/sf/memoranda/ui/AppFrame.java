@@ -279,8 +279,8 @@ public class AppFrame extends JFrame {
             }
         });
         jMenuHelp.setText(Local.getString("Help"));
-        
         jMenuHelpGuide.setText(Local.getString("Online user's guide"));
+        jMenuHelpGuide.setToolTipText(Local.getString("Go to online guide"));
         jMenuHelpGuide.setIcon(new ImageIcon(AppFrame.class.getResource(
                 "resources/icons/help.png")));
         jMenuHelpGuide.addActionListener(new ActionListener() {
@@ -290,6 +290,7 @@ public class AppFrame extends JFrame {
         });
         
         jMenuHelpWeb.setText(Local.getString("Memoranda web site"));
+        jMenuHelpWeb.setToolTipText(Local.getString("Go to Memoranda web site"));
         jMenuHelpWeb.setIcon(new ImageIcon(AppFrame.class.getResource(
                 "resources/icons/web.png")));
         jMenuHelpWeb.addActionListener(new ActionListener() {
@@ -298,14 +299,18 @@ public class AppFrame extends JFrame {
             }
         });
         
-        jMenuHelpBug.setText(Local.getString("Report a bug"));
+        jMenuHelpBug.setText(Local.getString("Bug report"));
+        jMenuHelpBug.setToolTipText(Local.getString("Report a bug"));
+        jMenuHelpBug.setIcon(new ImageIcon(AppFrame.class.getResource(
+                "resources/icons/bug_report.png")));
         jMenuHelpBug.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpBug_actionPerformed(e);
             }
         });        
         
-        jMenuHelpAbout.setText(Local.getString("About Memoranda"));
+        jMenuHelpAbout.setText(Local.getString("Faqs"));
+        jMenuHelpAbout.setToolTipText(Local.getString("About emoranda"));
         jMenuHelpAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpAbout_actionPerformed(e);
