@@ -71,6 +71,11 @@ public class EventsScheduler {
         return v;
     }
     
+    /*
+     * This method looks like it is the most related to
+     * TimeProgRecord in what it does
+     * Im not sure what timers is referring to though
+     * */
     public static Event getFirstScheduledEvent() {
         if (!isEventScheduled()) return null;
         Event e1 = ((EventTimer)_timers.get(0)).getEvent();
@@ -101,6 +106,11 @@ public class EventsScheduler {
             ((EventNotificationListener)_listeners.get(i)).eventsChanged();
     }
 
+    /*
+     * This method also seems useful,
+     * it uses the calendar to set the time and it returns
+     * a date with val.getTime
+     * */
     private static Date getMidnight() {
        Calendar cal = Calendar.getInstance();
        cal.set(Calendar.HOUR_OF_DAY, 0);
