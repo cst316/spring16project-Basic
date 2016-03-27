@@ -70,7 +70,11 @@ public class CalendarDate {
     public static CalendarDate today() {
         return new CalendarDate();
     }
-
+    
+    /*
+     * Another possibility is to use the calendar to record progress
+     * instead of using the system time
+     * this function finds and returns the date before the current one by using cal.roll*/
     public static CalendarDate yesterday() {
         Calendar cal = Calendar.getInstance();
         cal.roll(Calendar.DATE, false);
@@ -82,7 +86,10 @@ public class CalendarDate {
         cal.roll(Calendar.DATE, true);
         return new CalendarDate(cal);
     }
-
+    
+    /*
+     * Using Calendar.getInstance() they captured the year
+     *the month and the day. Im not sure if this is just what's on the calendar or on the system time. */
     public static Calendar toCalendar(int day, int month, int year) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
