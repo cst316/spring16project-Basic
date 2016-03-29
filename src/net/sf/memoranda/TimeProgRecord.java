@@ -14,20 +14,16 @@ public class TimeProgRecord {
 
     /*
      * Following the style of EventsScheduler.java
-     * we will store the dates in attributes under the Date class
-     * if we need to
-     **/
+     * we will store the dates in attributes under the Date class if we need to
+     */
 	Date prevDate;
 	Date currentDate;
 	
 	/*accumTime will be the accumulated amount of time 
-	 * between the current date and the previous date
-	 *this will be the total while currentTime
-	 *will serve as the placeholder attribute for the amount of time
-	 *between the last updated progress and the current entry.
-	 *prevTimeinMilli is necessary because that calculation between the two
-	 *intervals of time must be done and milliseconds before it is converted into 
-	 *hours days and minutes*/
+	 * of all the effort put into that task
+	 *currentTime will serve as the placeholder attribute for the current amount of time
+	 *prevTimeinMilli is the attribute that holds the previous amount of time
+	 **/
 	int accumTime;
 	long prevTimeinMilli;
 	long currentTimeinMilli;
@@ -80,6 +76,7 @@ public class TimeProgRecord {
 		  milliDifference %= SECOND;
 		}
 		
+		//Add the difference to the accumulated total
 		acuumTime += milliDifference;
 	}
 }
