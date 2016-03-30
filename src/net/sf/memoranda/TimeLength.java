@@ -14,12 +14,12 @@ public class TimeLength {
 	private String timeType; //This can be day, hour, minutes, etc. ALWAYS PLURAL
 	private long length; //This is the length of time (example: 3 for 3 days)
 	
-	TimeLength () {
+	public TimeLength () {
 		timeType = "Seconds";
 		length = 0; 
 	}
 	
-	TimeLength (String myType, long myLength) {
+	public TimeLength (String myType, long myLength) {
 		timeType = myType;
 		length = myLength;
 	}
