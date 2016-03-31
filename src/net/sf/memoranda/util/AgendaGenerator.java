@@ -252,6 +252,14 @@ public class AgendaGenerator {
 						+ Local.getString("No Deadline")
 						+ "</p>";		        
 			}
+			
+			//This part right here is where we will put our time log
+			//if (t.hasParentTask(t.getID()) != true) {
+				s+="<p>"
+				+ Local.getString("Something")
+				+ "</p>";
+		
+			//}
 		}                     
 		//>>>>>>> 1.4
 		s += "</li>\n";
