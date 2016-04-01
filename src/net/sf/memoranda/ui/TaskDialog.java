@@ -209,6 +209,7 @@ public class TaskDialog extends JDialog {
         jLabelEffort.setMaximumSize(new Dimension(100, 16));
         jLabelEffort.setMinimumSize(new Dimension(60, 16));
         jLabelEffort.setText(Local.getString("Est Effort(hrs)"));
+        jLabelEffort.setToolTipText("How much time do you expect to spend on this task?");
         effortField.setBorder(border8);
         effortField.setPreferredSize(new Dimension(30, 24));
 
@@ -310,6 +311,7 @@ public class TaskDialog extends JDialog {
         });
         
         setNotifB.setText(Local.getString("Set notification"));
+        setNotifB.setToolTipText("Create an event that will remind you by the time you specify.");
         setNotifB.setIcon(
             new ImageIcon(net.sf.memoranda.ui.AppFrame.class.getResource("resources/icons/notify.png")));
         setNotifB.addActionListener(new java.awt.event.ActionListener() {
@@ -321,6 +323,7 @@ public class TaskDialog extends JDialog {
         jLabel7.setMinimumSize(new Dimension(60, 16));
         //jLabel7.setPreferredSize(new Dimension(60, 16));
         jLabel7.setText(Local.getString("Priority"));
+        jLabel7.setToolTipText("Set how important this assignment is on a scale from Highest to Lowest.");
 
         priorityCB.setFont(new java.awt.Font("Dialog", 0, 11));
         jPanel4.add(jLabel7, null);
@@ -357,6 +360,7 @@ public class TaskDialog extends JDialog {
         jPanel3.add(setNotifB, null);
         
         jLabelProgress.setText(Local.getString("Progress"));
+        jLabelProgress.setToolTipText("The amount of progress done on this task can be edited here.");
         jPanelProgress.add(jLabelProgress, null);
         jPanelProgress.add(progress, null);
         jPanel2.add(jPanelProgress);
