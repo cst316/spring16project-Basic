@@ -23,6 +23,10 @@ import net.sf.memoranda.Task;
 import net.sf.memoranda.TaskList;
 import net.sf.memoranda.date.CalendarDate;
 import nu.xom.Element;
+
+//Dont forget to import the file.
+//import net.sf.memoranda.TimeProgRecord;
+//import net.sf.memoranda.TimeLength;
 /**
  *  
  */
@@ -138,13 +142,17 @@ public class AgendaGenerator {
 	
 	private static String renderTask(Project p, CalendarDate date, TaskList tl, Task t, int level, Collection expandedTasks) {
 		String s = "";
-
+		
+		//This is where we generate the Timerec object
+		//TimeProgRecord progressRecord = new TimeProgRecord(t);
+		
 		int pg = t.getProgress();
 		String progress = "";
 		if (pg == 100)
 			progress = "<font color=\"green\">"+Local.getString("Completed")+"</font>";
 		else
 			progress = pg + Local.getString("% done");
+		
 
 		//		String nbsp = "&nbsp;&nbsp;";
 		//		String spacing = "";
@@ -178,30 +186,14 @@ public class AgendaGenerator {
 				+ ": "
 				+ getPriorityString(t.getPriority())
 				+ "</p>";
-		/*<<<<<<< AgendaGenerator.java
-		if (!(t.getStartDate().getDate()).after(t.getEndDate().getDate())) {
-		    if (t.getEndDate().equals(date))
-		        s += "<p><font color=\"#FF9900\"><b>"
-		            + Local.getString("Should be done today")
-		            + ".</b></font></p>";
-		    else {
-		        Calendar endDateCal = t.getEndDate().getCalendar();
-		        Calendar dateCal = date.getCalendar();
-		        int numOfDays = (endDateCal.get(Calendar.YEAR)*365 + endDateCal.get(Calendar.DAY_OF_YEAR)) - 
-		                (dateCal.get(Calendar.YEAR)*365 + dateCal.get(Calendar.DAY_OF_YEAR));
-		        String days = "";
-		        if (numOfDays > 1)
-		            days = Local.getString("in")+" "+numOfDays+" "+Local.getString("day(s)");
-		        else
-		            days = Local.getString("tomorrow");
-		        s += "<p>"
-		            + Local.getString("Deadline")
-		            + ": <i>"
-		            + t.getEndDate().getMediumDateString()
-		            + "</i> ("+days+")</p>";
-		    }                    
-		}
-=======*/
+		
+	
+		/*if (t.hasParentTask(t.getID()) != true) {
+			s+="<p>"
+			+ Local.getString("Something")
+			+ "</p>";
+		*/
+		
 		//We should be looking at this block of code right here
 		if (t.getEndDate().equals(date)){
 			s += "<p><font color=\"#FF0A0A\"><b>"
@@ -255,9 +247,9 @@ public class AgendaGenerator {
 			
 			//This part right here is where we will put our time log
 			//if (t.hasParentTask(t.getID()) != true) {
-				s+="<p>"
-				+ Local.getString("Something")
-				+ "</p>";
+				//s+="<p>"
+				//+ Local.getString("Something")
+			//	+ "</p>";
 		
 			//}
 		}                     

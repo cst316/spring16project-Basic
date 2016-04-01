@@ -12,12 +12,7 @@ public class TimeProgRecord {
     static Vector<Integer> progress = new Vector<>();
     static Vector<TimeLength> times = new Vector<>();
 
-    /*
-     * Following the style of EventsScheduler.java
-     * we will store the dates in attributes under the Date class if we need to
-     */
-	Date prevDate;
-	Date currentDate;
+    Task task;
 	
 	/*accumTime will be the accumulated amount of time 
 	 * of all the effort put into that task
@@ -25,29 +20,27 @@ public class TimeProgRecord {
 	 *prevTimeinMilli is the attribute that holds the previous amount of time
 	 **/
 	
-	int accumTime;
-	long prevTimeinMilli;
-	long currentTimeinMilli;
+	private int progressCheck = task.getProgress();
+	private long prevTimeinMilli;
+	private long currentTimeinMilli;
 	
 	//This is a placeholder for effort in case multiple clicks are used to increment effort
-	int progressCumulative;
+	private int progressCumulative;
 	
 	//The string that will be outputed to the Agenda Frame
-	String progString;
+	private String progString;
 	
 	//Constructor
-	TimeProgRecord(TaskImpl task){
+	public TimeProgRecord(Task task){
+		this.task = task;
 		currentTimeinMilli = System.currentTimeMillis();
-		//calcTime();
-		//_progress.addElement(task.getProgress());
-		progressCumulative = 0;
+		calcTime();
 	}
 	
-	/*
-	 *Method will calculate the amount of time between prevDate and currentDate,
-	 *add that time to accumTime,
-	 *then return that time in a string that can be appended to the progress string
-	 **/
+	
+	public int checkProgress(){
+		return progressCheck;
+	}
 	
 	/*
 	 * Aaron Lajom's change:
@@ -104,7 +97,7 @@ public class TimeProgRecord {
 	 * Aaron Lajom
 	 * The purpose of this method is to append both time and progress to the their respected vectors
 	 */
-	public void appendProgAndTime(int myProg) {
+	public void appendProgAndTime() {
 		
 		//Calculate the current difference in time
 		TimeLength thisTime = calcTime ();
@@ -117,17 +110,17 @@ public class TimeProgRecord {
 		//If the size of the times vector is not zero and barely any time has passed, it will add the progress 
 		//to the last bit of progress
 		if (timesSize != 0 && (thisTime.getType().equals("Minutes") || thisTime.getType().equals("Seconds"))) {
-			progress.set(progMaxRef, progress.get(progMaxRef) + myProg);
+			progress.set(progMaxRef, progress.get(progMaxRef) + task.getProgress());
 		}
 		//Otherwise just add it
 		else { 
 			times.add(thisTime);
-			progress.add(myProg);
+			progress.add(task.getProgress());
 		}
 		
 	}
 	
-	public void generateString () {
+	public String generateString () {
 		if (times.size() == 0) {
 			progString = "No progress has been made!";
 		}
@@ -138,6 +131,7 @@ public class TimeProgRecord {
 				progString += (times.get(i).getLength() + " " + times.get(i).getType() + ", ");
 			}
 		}
+		return progString;
 	}
 
 }
