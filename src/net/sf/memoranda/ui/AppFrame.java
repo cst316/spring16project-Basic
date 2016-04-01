@@ -272,6 +272,7 @@ public class AppFrame extends JFrame {
                 + App.BUILD_INFO + " )");
 
         jMenuFile.setText(Local.getString("File"));
+        jMenuFile.setToolTipText(Local.getString("Insert file"));
         jMenuFileExit.setText(Local.getString("Exit"));
         jMenuFileExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -311,6 +312,8 @@ public class AppFrame extends JFrame {
         
         jMenuHelpAbout.setText(Local.getString("Faqs"));
         jMenuHelpAbout.setToolTipText(Local.getString("About Memoranda"));
+        jMenuHelpAbout.setIcon(new ImageIcon(AppFrame.class.getResource(
+                "resources/icons/about.png")));
         jMenuHelpAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpAbout_actionPerformed(e);
@@ -346,7 +349,7 @@ public class AppFrame extends JFrame {
         jMenuFileImportNote.setText(Local.getString("Import one note")
                 + "...");
         jMenuFilePackPrj.setText(Local.getString("Pack project") + "...");
-        jMenuFileMin.setText(Local.getString("Close the window"));
+        jMenuFileMin.setText(Local.getString("Minamize"));
         jMenuFileMin.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F10,
                 InputEvent.ALT_MASK));
 
@@ -394,7 +397,9 @@ public class AppFrame extends JFrame {
         jMenuInsertChar.setToolTipText(Local.getString(
                 "Insert Special character"));
         jMenuInsertDate.setText(Local.getString("Current date"));
+        jMenuInsertDate.setToolTipText(Local.getString("Insert current date"));
         jMenuInsertTime.setText(Local.getString("Current time"));
+        jMenuInsertTime.setToolTipText(Local.getString("Insert current time"));
         jMenuInsertFile.setText(Local.getString("File") + "...");
 
         jMenuFormat.setText(Local.getString("Format"));
@@ -425,11 +430,11 @@ public class AppFrame extends JFrame {
         jMenuFormatChU.setToolTipText(Local.getString("Underline"));
         jMenuFormatAlign.setText(Local.getString("Alignment"));
         jMenuFormatAlignL.setText(Local.getString("Left"));
-        jMenuFormatAlignL.setToolTipText(Local.getString("Left"));
+        jMenuFormatAlignL.setToolTipText(Local.getString("Align left"));
         jMenuFormatAlignC.setText(Local.getString("Center"));
-        jMenuFormatAlignC.setToolTipText(Local.getString("Center"));
+        jMenuFormatAlignC.setToolTipText(Local.getString("Align center"));
         jMenuFormatAlignR.setText(Local.getString("Right"));
-        jMenuFormatAlignR.setToolTipText(Local.getString("Right"));
+        jMenuFormatAlignR.setToolTipText(Local.getString("Align right"));
         jMenuFormatTable.setText(Local.getString("Table"));
         jMenuFormatTableInsR.setText(Local.getString("Insert row"));
         jMenuFormatTableInsC.setText(Local.getString("Insert cell"));
@@ -437,6 +442,7 @@ public class AppFrame extends JFrame {
                 + "...");
         jMenuFormatProperties.setToolTipText(Local.getString(
                 "Object properties"));
+        
 
         //go tab code
        /* jMenuGo.setText(Local.getString("Go"));
@@ -969,6 +975,7 @@ public class AppFrame extends JFrame {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileHidingEnabled(false);
             chooser.setDialogTitle(Local.getString("Import notes"));
+            
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
                 chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.HTML));
