@@ -1,8 +1,6 @@
 package net.sf.memoranda;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.Calendar;
+
 import java.util.Vector;
 
 public class TimeProgRecord {
@@ -11,8 +9,8 @@ public class TimeProgRecord {
 	 * or whatever data we decide needs to be put in these vectors*/
     static Vector<Integer> progress = new Vector<>();
     static Vector<TimeLength> times = new Vector<>();
-
-    Task task;
+    
+    private Task task;
 	
 	/*accumTime will be the accumulated amount of time 
 	 * of all the effort put into that task
@@ -33,8 +31,13 @@ public class TimeProgRecord {
 	//Constructor
 	public TimeProgRecord(Task task){
 		this.task = task;
+		
+		prevTimeinMilli = currentTimeinMilli;
 		currentTimeinMilli = System.currentTimeMillis();
-		calcTime();
+		TimeLength thisTime = new TimeLength("seconds", 0);
+		times.add(thisTime);
+		progress.add(task.getProgress());
+		
 	}
 	
 	
@@ -59,8 +62,8 @@ public class TimeProgRecord {
 		//progString.append("You have made " + task.getProgress() + " progress in, ");
 		
 		//Give Previous time the former Current Time and set Current Time to the new SystemTime
-		long prevTimeinMilli = currentTimeinMilli;
-		long currentTimeinMilli = System.currentTimeMillis();
+		 prevTimeinMilli = currentTimeinMilli;
+		 currentTimeinMilli = System.currentTimeMillis();
 		
 		//Calculate how many Days Hours and Minutes are in the difference of dates
 		long milliDifference = currentTimeinMilli - prevTimeinMilli;
