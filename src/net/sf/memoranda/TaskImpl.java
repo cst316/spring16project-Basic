@@ -192,6 +192,10 @@ public class TaskImpl implements Task, Comparable {
     public String getID() {
         return _element.getAttribute("id").getValue();
     }
+    
+    public String getType() {
+    	return _element.getAttribute("Type").getValue();
+    }
 
     /**
      * @see net.sf.memoranda.Task#getText()
