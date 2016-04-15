@@ -59,6 +59,7 @@ public interface Task {
     String getID();
     
     String getType();
+    void setType(String s);
     
     String getText();
     void setText(String s);

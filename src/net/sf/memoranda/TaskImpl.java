@@ -194,7 +194,26 @@ public class TaskImpl implements Task, Comparable {
     }
     
     public String getType() {
-    	return _element.getAttribute("Type").getValue();
+    	Element thisElement = _element.getFirstChildElement("type");
+    	if (thisElement == null) {
+    		return "";
+    	}
+    	else {
+    		return thisElement.getValue();
+    	}
+    }
+    
+    public void setType(String s) {
+    	Element type = _element.getFirstChildElement("type");
+    	if (type == null) {
+    		type = new Element("type");
+    		type.appendChild(s);
+    		_element.appendChild(type);
+    	}
+    	else {
+    		type.removeChildren();
+    		type.appendChild(s);
+    	}
     }
 
     /**

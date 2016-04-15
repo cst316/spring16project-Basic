@@ -121,7 +121,9 @@ public class TaskListImpl implements TaskList {
         desc.appendChild(description);
         el.appendChild(desc);
         
-        el.addAttribute(new Attribute("type", type));
+        Element typ = new Element("type");
+        typ.appendChild(type);
+        el.appendChild(typ);
 
         if (parentTaskId == null) {
             _root.appendChild(el);

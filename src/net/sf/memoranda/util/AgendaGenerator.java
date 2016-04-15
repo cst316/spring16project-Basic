@@ -235,6 +235,7 @@ public class AgendaGenerator {
 			}
 		}                     
 		//>>>>>>> 1.4
+		
 		s += "</li>\n";
 		return s;
 	}
