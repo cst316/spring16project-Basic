@@ -272,7 +272,6 @@ public class AppFrame extends JFrame {
                 + App.BUILD_INFO + " )");
 
         jMenuFile.setText(Local.getString("File"));
-        jMenuFile.setToolTipText(Local.getString("Insert file"));
         jMenuFileExit.setText(Local.getString("Exit"));
         jMenuFileExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -280,8 +279,8 @@ public class AppFrame extends JFrame {
             }
         });
         jMenuHelp.setText(Local.getString("Help"));
+        
         jMenuHelpGuide.setText(Local.getString("Online user's guide"));
-        jMenuHelpGuide.setToolTipText(Local.getString("Go to online guide"));
         jMenuHelpGuide.setIcon(new ImageIcon(AppFrame.class.getResource(
                 "resources/icons/help.png")));
         jMenuHelpGuide.addActionListener(new ActionListener() {
@@ -291,7 +290,6 @@ public class AppFrame extends JFrame {
         });
         
         jMenuHelpWeb.setText(Local.getString("Memoranda web site"));
-        jMenuHelpWeb.setToolTipText(Local.getString("Go to Memoranda web site"));
         jMenuHelpWeb.setIcon(new ImageIcon(AppFrame.class.getResource(
                 "resources/icons/web.png")));
         jMenuHelpWeb.addActionListener(new ActionListener() {
@@ -300,20 +298,14 @@ public class AppFrame extends JFrame {
             }
         });
         
-        jMenuHelpBug.setText(Local.getString("Bug report"));
-        jMenuHelpBug.setToolTipText(Local.getString("Report a bug"));
-        jMenuHelpBug.setIcon(new ImageIcon(AppFrame.class.getResource(
-                "resources/icons/bug_report.png")));
+        jMenuHelpBug.setText(Local.getString("Report a bug"));
         jMenuHelpBug.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpBug_actionPerformed(e);
             }
         });        
         
-        jMenuHelpAbout.setText(Local.getString("Faqs"));
-        jMenuHelpAbout.setToolTipText(Local.getString("About Memoranda"));
-        jMenuHelpAbout.setIcon(new ImageIcon(AppFrame.class.getResource(
-                "resources/icons/about.png")));
+        jMenuHelpAbout.setText(Local.getString("About Memoranda"));
         jMenuHelpAbout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jMenuHelpAbout_actionPerformed(e);
@@ -349,7 +341,7 @@ public class AppFrame extends JFrame {
         jMenuFileImportNote.setText(Local.getString("Import one note")
                 + "...");
         jMenuFilePackPrj.setText(Local.getString("Pack project") + "...");
-        jMenuFileMin.setText(Local.getString("Minamize"));
+        jMenuFileMin.setText(Local.getString("Close the window"));
         jMenuFileMin.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F10,
                 InputEvent.ALT_MASK));
 
@@ -397,9 +389,7 @@ public class AppFrame extends JFrame {
         jMenuInsertChar.setToolTipText(Local.getString(
                 "Insert Special character"));
         jMenuInsertDate.setText(Local.getString("Current date"));
-        jMenuInsertDate.setToolTipText(Local.getString("Insert current date"));
         jMenuInsertTime.setText(Local.getString("Current time"));
-        jMenuInsertTime.setToolTipText(Local.getString("Insert current time"));
         jMenuInsertFile.setText(Local.getString("File") + "...");
 
         jMenuFormat.setText(Local.getString("Format"));
@@ -430,11 +420,11 @@ public class AppFrame extends JFrame {
         jMenuFormatChU.setToolTipText(Local.getString("Underline"));
         jMenuFormatAlign.setText(Local.getString("Alignment"));
         jMenuFormatAlignL.setText(Local.getString("Left"));
-        jMenuFormatAlignL.setToolTipText(Local.getString("Align left"));
+        jMenuFormatAlignL.setToolTipText(Local.getString("Left"));
         jMenuFormatAlignC.setText(Local.getString("Center"));
-        jMenuFormatAlignC.setToolTipText(Local.getString("Align center"));
+        jMenuFormatAlignC.setToolTipText(Local.getString("Center"));
         jMenuFormatAlignR.setText(Local.getString("Right"));
-        jMenuFormatAlignR.setToolTipText(Local.getString("Align right"));
+        jMenuFormatAlignR.setToolTipText(Local.getString("Right"));
         jMenuFormatTable.setText(Local.getString("Table"));
         jMenuFormatTableInsR.setText(Local.getString("Insert row"));
         jMenuFormatTableInsC.setText(Local.getString("Insert cell"));
@@ -442,7 +432,6 @@ public class AppFrame extends JFrame {
                 + "...");
         jMenuFormatProperties.setToolTipText(Local.getString(
                 "Object properties"));
-        
 
         //go tab code
        /* jMenuGo.setText(Local.getString("Go"));
@@ -975,7 +964,6 @@ public class AppFrame extends JFrame {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileHidingEnabled(false);
             chooser.setDialogTitle(Local.getString("Import notes"));
-            
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
                 chooser.addChoosableFileFilter(new AllFilesFilter(AllFilesFilter.HTML));

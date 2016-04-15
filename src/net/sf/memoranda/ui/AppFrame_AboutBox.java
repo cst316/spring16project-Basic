@@ -91,7 +91,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
 
     
     button1.setText(Local.getString("Ok"));
-    button1.setBounds(150, 420, 90, 30);
+    button1.setBounds(150, 415, 95, 30);
     button1.addActionListener(this);
     button1.setPreferredSize(new Dimension(95, 30));
     button1.setBackground(new Color(69, 125, 186));

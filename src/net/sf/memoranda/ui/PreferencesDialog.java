@@ -1,14 +1,3 @@
-/*
- * [US-20] Here is the pseudo code for tool tips.
- * 
- * psuedButton = new JButton("Psuedo Button");
- * psuedoButton.setToolTipText("This is a tool tip.");
- * 
- * foo is not just the object that you attatch the tool tip to. Foo needs to be a jButton
- * or something from the Jframe library. of course we don't need to make the button just attatch the tool tip. The code is placed where the panels and frames are drawn in the program
- * this preferences dialog file would be used for this but only the dialog box.
- */
-
 package net.sf.memoranda.ui;
 
 import java.io.File;
@@ -228,7 +217,6 @@ public class PreferencesDialog extends JDialog {
 		minGroup.add(minTaskbarRB);
 		minTaskbarRB.setSelected(true);
 		minTaskbarRB.setText(Local.getString("Minimize to taskbar"));
-		minTaskbarRB.setToolTipText("This will minimize memoranda to the taskbar.");
 		minTaskbarRB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				minTaskbarRB_actionPerformed(e);
@@ -242,7 +230,6 @@ public class PreferencesDialog extends JDialog {
 		GeneralPanel.add(minTaskbarRB, gbc);
 		minGroup.add(minHideRB);
 		minHideRB.setText(Local.getString("Hide"));
-		minHideRB.setToolTipText("This will keep memoranda running in the background but not on the taskbar.");
 		minHideRB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				minHideRB_actionPerformed(e);
@@ -265,7 +252,6 @@ public class PreferencesDialog extends JDialog {
 		closeGroup.add(closeExitRB);
 		closeExitRB.setSelected(true);
 		closeExitRB.setText(Local.getString("Close and exit"));
-		closeExitRB.setToolTipText("This will stop the batch file running memoranda completely.");
 		closeExitRB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeExitRB_actionPerformed(e);
@@ -280,7 +266,6 @@ public class PreferencesDialog extends JDialog {
 
 		closeGroup.add(closeHideRB);
 		closeHideRB.setText(Local.getString("Hide"));
-		closeHideRB.setToolTipText("This will still keep memoranda running in the background.");
 		closeHideRB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeHideRB_actionPerformed(e);

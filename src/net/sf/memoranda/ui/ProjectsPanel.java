@@ -122,7 +122,6 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 
 		toggleButton.setIcon(expIcon);
 		toggleButton.setMargin(new Insets(0, 0, 0, 0));
-		toggleButton.setToolTipText("Expand Project Viewer");
 		buttonsPanel.setMinimumSize(new Dimension(70, 22));
 		buttonsPanel.setOpaque(false);
 		buttonsPanel.setPreferredSize(new Dimension(80, 22));
@@ -222,7 +221,6 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 			new ImageIcon(
 				net.sf.memoranda.ui.AppFrame.class.getResource(
 					"resources/icons/ppopen.png")));
-		ppOpenB.setToolTipText("Project Manager Options");
 		buttonsPanel.add(ppOpenB, null);
 		buttonsPanel.add(component1, null);
 		this.add(topBar, BorderLayout.NORTH);
@@ -320,11 +318,9 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 		if (expanded) {
 			expanded = false;
 			toggleButton.setIcon(expIcon);
-			toggleButton.setToolTipText("Expand Project Viewer");
 		} else {
 			expanded = true;
 			toggleButton.setIcon(collIcon);
-			toggleButton.setToolTipText("Hide Project Viewer");
 		}
 	}
 
