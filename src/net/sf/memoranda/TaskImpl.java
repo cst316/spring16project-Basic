@@ -28,7 +28,7 @@ public class TaskImpl implements Task, Comparable {
 
     private Element _element = null;
     private TaskList _tl = null;
-    public TimeProgRecord record = new TimeProgRecord(this);
+    //public TimeProgRecord record = new TimeProgRecord(this);
 
 
     /**
@@ -272,7 +272,7 @@ public class TaskImpl implements Task, Comparable {
     public void setProgress(int p) {
         if ((p >= 0) && (p <= 100))
             setAttr("progress", new Integer(p).toString());
-        record.appendProgAndTime();
+        //record.appendProgAndTime();
     }
     /**
      * @see net.sf.memoranda.Task#getPriority()
