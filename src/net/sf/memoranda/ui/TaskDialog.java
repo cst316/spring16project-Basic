@@ -63,7 +63,7 @@ public class TaskDialog extends JDialog {
     // added by rawsushi
     JTextField effortField = new JTextField();
     JTextArea descriptionField = new JTextArea();
-    //JTextField taskTypeField = new JTextField();
+    JTextField taskTypeField = new JTextField();
     /* Aaron's notes:
      * The above line needs ui implementation, probably in this java file. 
      * See how effortField is implemented in this java file.
@@ -99,6 +99,7 @@ public class TaskDialog extends JDialog {
     JLabel jLabel7 = new JLabel();
     // added by rawsushi
     JLabel jLabelEffort = new JLabel();
+    JLabel jLabelType = new JLabel();
     JLabel jLabelDescription = new JLabel();
 	JCheckBox chkEndDate = new JCheckBox();
 	
@@ -217,7 +218,13 @@ public class TaskDialog extends JDialog {
         jLabelEffort.setText(Local.getString("Est Effort(hrs)"));
         effortField.setBorder(border8);
         effortField.setPreferredSize(new Dimension(30, 24));
-
+        
+        jLabelType.setMaximumSize(new Dimension(100, 16));
+        jLabelType.setMinimumSize(new Dimension(60, 16));
+        jLabelType.setText(Local.getString("Type"));
+        taskTypeField.setBorder(border8);
+        taskTypeField.setPreferredSize(new Dimension(120, 24));
+        
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));                
 		SimpleDateFormat sdf = new SimpleDateFormat();
@@ -355,6 +362,8 @@ public class TaskDialog extends JDialog {
         jPanel2.add(jPanelEffort, null);
         jPanelEffort.add(jLabelEffort, null);
         jPanelEffort.add(effortField, null);
+        jPanelEffort.add(jLabelType, null);
+        jPanelEffort.add(taskTypeField, null);
 
         jPanel2.add(jPanel4, null);
         jPanel4.add(priorityCB, null);
