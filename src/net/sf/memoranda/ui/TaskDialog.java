@@ -62,6 +62,7 @@ public class TaskDialog extends JDialog {
     
     // added by rawsushi
     JTextField effortField = new JTextField();
+    JTextField typeField = new JTextField();
     JTextArea descriptionField = new JTextArea();
     JScrollPane descriptionScrollPane = new JScrollPane(descriptionField);
     
@@ -94,6 +95,7 @@ public class TaskDialog extends JDialog {
     JLabel jLabel7 = new JLabel();
     // added by rawsushi
     JLabel jLabelEffort = new JLabel();
+    JLabel jLabelType = new JLabel();
     JLabel jLabelDescription = new JLabel();
 	JCheckBox chkEndDate = new JCheckBox();
 	
@@ -212,7 +214,14 @@ public class TaskDialog extends JDialog {
         jLabelEffort.setToolTipText("How much time do you expect to spend on this task?");
         effortField.setBorder(border8);
         effortField.setPreferredSize(new Dimension(30, 24));
-
+        
+        jLabelType.setMaximumSize(new Dimension(100, 16));
+        jLabelType.setMinimumSize(new Dimension(60, 16));
+        jLabelType.setText(Local.getString("Type"));
+        jLabelType.setToolTipText("What kind of task is this? PSP: Planning, Design, Code, Test");
+        typeField.setBorder(border8);
+        typeField.setPreferredSize(new Dimension(120, 24));
+        
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));                
 		SimpleDateFormat sdf = new SimpleDateFormat();
@@ -352,6 +361,8 @@ public class TaskDialog extends JDialog {
         jPanel2.add(jPanelEffort, null);
         jPanelEffort.add(jLabelEffort, null);
         jPanelEffort.add(effortField, null);
+        jPanelEffort.add(jLabelType, null);
+        jPanelEffort.add(typeField, null);
 
         jPanel2.add(jPanel4, null);
         jPanel4.add(priorityCB, null);

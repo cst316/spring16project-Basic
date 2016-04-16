@@ -61,6 +61,9 @@ public interface Task {
     String getText();
     void setText(String s);
     
+    String getType();
+    void setType(String s);
+    
     /*Collection getDependsFrom();
     
     void addDependsFrom(Task task);
