@@ -231,7 +231,7 @@ public class TaskTableModel extends AbstractTreeTableModel implements TreeTableM
     }
     
     public boolean isCellEditable(Object node, int column) {
-		if(column == 6) return true; 
+		if(column == 8) return true; 
         return super.isCellEditable(node, column); 
     }
 
