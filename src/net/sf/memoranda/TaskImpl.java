@@ -27,6 +27,8 @@ public class TaskImpl implements Task, Comparable {
 
     private Element _element = null;
     private TaskList _tl = null;
+    
+    private TimeProgRecord record = null;
 
     /**
      * Constructor for DefaultTask.
@@ -34,8 +36,22 @@ public class TaskImpl implements Task, Comparable {
     public TaskImpl(Element taskElement, TaskList tl) {
         _element = taskElement;
         _tl = tl;
+        record = new TimeProgRecord();
     }
 
+    public void beginRecord() {
+    	record = new TimeProgRecord();
+    }
+    
+    public TimeProgRecord getRecord () {
+    	return record;
+    }
+    
+    //Feature Envy
+    public void setRecord(int x) {
+    	record.appendProgAndTime(x);
+    }
+    
     public Element getContent() {
         return _element;
     }

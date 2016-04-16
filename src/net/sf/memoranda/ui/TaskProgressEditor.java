@@ -38,6 +38,7 @@ public class TaskProgressEditor extends JPanel implements TableCellEditor{
 				int w = getWidth()/2;
 				if(e.getX() > w){
 					current.setProgress( current.getProgress()+5 );
+					current.setRecord(5);
 				}else{
 					current.setProgress( current.getProgress()-5 );
 				}
