@@ -66,30 +66,30 @@ public class TimeProgRecord {
 		//progString.append("You have made " + task.getProgress() + " progress in, ");
 		
 		//Give Previous time the former Current Time and set Current Time to the new SystemTime
-		long prevTimeinMilli = currentTimeinMilli;
-		long currentTimeinMilli = System.currentTimeMillis();
+		prevTimeinMilli = currentTimeinMilli;
+		currentTimeinMilli = System.currentTimeMillis();
 		
 		//Calculate how many Days Hours and Minutes are in the difference of dates
 		long milliDifference = currentTimeinMilli - prevTimeinMilli;
 
-		if (milliDifference%DAY > 0) {
+		if (milliDifference/DAY > 0) {
 		  //progString.append(milliDifference / DAY).append(" days ");
-		  milliDifference %= DAY;
+		  milliDifference /= DAY;
 		  typeTime = "Days";
 		}
-		else if (milliDifference%HOUR > 0) {
+		if (milliDifference/HOUR > 0) {
 		  //progString.append(milliDifference / HOUR).append(" hours ");
-		  milliDifference %= HOUR;
+		  milliDifference /= HOUR;
 		  typeTime = "Hours";
 		}
-		else if (milliDifference%MINUTE > 0) {
+		if (milliDifference/MINUTE > 0) {
 		  //progString.append(milliDifference / MINUTE).append(" minutes ");
-		  milliDifference %= MINUTE;
+		  milliDifference /= MINUTE;
 		  typeTime = "Minutes";
 		}
 		else {
 		  //progString.append(milliDifference / SECOND).append(" seconds ");
-		  milliDifference %= SECOND;
+		  milliDifference /= SECOND;
 		  typeTime = "Seconds";
 		}
 		
@@ -116,7 +116,8 @@ public class TimeProgRecord {
 		
 		//If the size of the times vector is not zero and barely any time has passed, it will add the progress 
 		//to the last bit of progress
-		if (timesSize != 0 && (thisTime.getType().equals("Minutes") || thisTime.getType().equals("Seconds"))) {
+		
+		if (timesSize != 0 && (/*thisTime.getType().equals("Minutes") ||*/ thisTime.getType().equals("Seconds"))) {
 			progress.set(progMaxRef, progress.get(progMaxRef) + myProg);
 		}
 		//Otherwise just add it
@@ -124,10 +125,10 @@ public class TimeProgRecord {
 			times.add(thisTime);
 			progress.add(myProg);
 		}
-		
+		generateString();
 	}
 	
-	public String generateString () {
+	public void generateString () {
 		if (times.size() == 0) {
 			progString = "No progress has been made!";
 		}
@@ -138,6 +139,10 @@ public class TimeProgRecord {
 				progString += (progress.get(i) + "% " + times.get(i).getLength() + " " + times.get(i).getType() + ", ");
 			}
 		}
+		//return progString;
+	}
+	
+	public String getString() {
 		return progString;
 	}
 

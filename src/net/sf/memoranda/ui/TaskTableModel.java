@@ -89,7 +89,7 @@ public class TaskTableModel extends AbstractTreeTableModel implements TreeTableM
         case 1:
         	return t;
         case 2:
-            return t.getRecord().generateString();
+            return t.getRecord().getString();
         case 3:
         	return t.getType();
         case 4:

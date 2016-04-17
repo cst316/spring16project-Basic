@@ -253,9 +253,9 @@ public class AgendaGenerator {
 						+ "</p>";		        
 			}
 		}                  
-		
+		t.getRecord().generateString();
 		s+= "<p>"
-				+ t.getRecord().generateString()
+				+ t.getRecord().getString()
 				+ "</p>";
 		//>>>>>>> 1.4
 		s += "</li>\n";
