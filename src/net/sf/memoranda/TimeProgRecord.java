@@ -104,7 +104,7 @@ public class TimeProgRecord {
 	 * Aaron Lajom
 	 * The purpose of this method is to append both time and progress to the their respected vectors
 	 */
-	public void appendProgAndTime(int myProg) {
+	public void appendProgAndTime(int myProg, int currentProg) {
 		
 		//Calculate the current difference in time
 		TimeLength thisTime = calcTime ();
@@ -116,10 +116,13 @@ public class TimeProgRecord {
 		
 		//If the size of the times vector is not zero and barely any time has passed, it will add the progress 
 		//to the last bit of progress
-		
+
 		if (timesSize != 0 && (/*thisTime.getType().equals("Minutes") ||*/ thisTime.getType().equals("Seconds"))) {
 			progress.set(progMaxRef, progress.get(progMaxRef) + myProg);
 		}
+		//if (timesSize != 0 && progress.get(progMaxRef) > currentProg && ( thisTime.getType().equals("Seconds"))) {
+			//progress.set(progMaxRef, progress.get(progMaxRef) - myProg);
+		//}
 		//Otherwise just add it
 		else { 
 			times.add(thisTime);

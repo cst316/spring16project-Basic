@@ -49,7 +49,7 @@ public class TaskImpl implements Task, Comparable {
     
     //Feature Envy
     public void setRecord(int x) {
-    	record.appendProgAndTime(x);
+    	record.appendProgAndTime(x, getProgress());
     }
     
     public Element getContent() {
