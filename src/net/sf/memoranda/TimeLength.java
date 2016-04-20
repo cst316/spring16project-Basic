@@ -1,18 +1,17 @@
 package net.sf.memoranda;
 
 /**
- * 
- */
-
-/**
- * @author Aaron Lajom aka alajom
+ * @author Aaron Lajom aka alajom.
  *
  */
 public class TimeLength {
 	
 	//Attributes
-	private String timeType; //This can be day, hour, minutes, etc. ALWAYS PLURAL
-	private long length; //This is the length of time (example: 3 for 3 days)
+	//This can be day, hour, minutes, etc. ALWAYS PLURAL
+	private String timeType; 
+	
+	//This is the length of time (example: 3 for 3 days)
+	private long length; 
 	
 	TimeLength () {
 		timeType = "Seconds";

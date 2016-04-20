@@ -58,10 +58,10 @@ public class TimeProgRecord {
 	public TimeLength calcTime(){
 		
 		String typeTime;
-		int SECOND = 1000;
-		int MINUTE = 60 * SECOND;
-		int HOUR = 60 * MINUTE;
-		int DAY = 24 * HOUR;
+		int Second = 1000;
+		int Minute = 60 * Second;
+		int Hour = 60 * Minute;
+		int Day = 24 * Hour;
 		
 		//progString.append("You have made " + task.getProgress() + " progress in, ");
 		
@@ -72,24 +72,24 @@ public class TimeProgRecord {
 		//Calculate how many Days Hours and Minutes are in the difference of dates
 		long milliDifference = currentTimeinMilli - prevTimeinMilli;
 
-		if (milliDifference/DAY > 0) {
+		if (milliDifference/Day > 0) {
 		  //progString.append(milliDifference / DAY).append(" days ");
-		  milliDifference /= DAY;
+		  milliDifference /= Day;
 		  typeTime = "Days";
 		}
-		if (milliDifference/HOUR > 0) {
+		if (milliDifference/Hour > 0) {
 		  //progString.append(milliDifference / HOUR).append(" hours ");
-		  milliDifference /= HOUR;
+		  milliDifference /= Hour;
 		  typeTime = "Hours";
 		}
-		if (milliDifference/MINUTE > 0) {
+		if (milliDifference/Minute > 0) {
 		  //progString.append(milliDifference / MINUTE).append(" minutes ");
-		  milliDifference /= MINUTE;
+		  milliDifference /= Minute;
 		  typeTime = "Minutes";
 		}
 		else {
 		  //progString.append(milliDifference / SECOND).append(" seconds ");
-		  milliDifference /= SECOND;
+		  milliDifference /= Second;
 		  typeTime = "Seconds";
 		}
 		
@@ -102,7 +102,8 @@ public class TimeProgRecord {
 	
 	/*
 	 * Aaron Lajom
-	 * The purpose of this method is to append both time and progress to the their respected vectors
+	 * The purpose of this method is to append both time and progress 
+	 * to the their respective vectors
 	 */
 	public void appendProgAndTime(int myProg, int currentProg) {
 		
@@ -112,18 +113,19 @@ public class TimeProgRecord {
 		int progSize = progress.size();
 		int progMaxRef = progSize - 1;
 		int timesSize = times.size();
-		//int timesMaxRef = timesSize - 1;
 		
 		//If the size of the times vector is not zero and barely any time has passed, it will add the progress 
 		//to the last bit of progress
 
-		if (timesSize != 0 && (/*thisTime.getType().equals("Minutes") ||*/ thisTime.getType().equals("Seconds"))) {
+		if (timesSize != 0 && (thisTime.getType().equals("Seconds"))) {
 			progress.set(progMaxRef, progress.get(progMaxRef) + myProg);
 		}
-		//if (timesSize != 0 && progress.get(progMaxRef) > currentProg && ( thisTime.getType().equals("Seconds"))) {
-			//progress.set(progMaxRef, progress.get(progMaxRef) - myProg);
+		//if (timesSize != 0 && progress.get(progMaxRef) > currentProg 
+		//&& ( thisTime.getType().equals("Seconds"))) {
+		//progress.set(progMaxRef, progress.get(progMaxRef) - myProg);
 		//}
 		//Otherwise just add it
+		
 		else { 
 			times.add(thisTime);
 			progress.add(myProg);
