@@ -36,7 +36,7 @@ public class EventImpl implements Event, Comparable {
      * @see net.sf.memoranda.Event#getHour()
      */
     public int getHour() {
-        return new Integer(_elem.getAttribute("hour").getValue()).intValue();
+        return new Integer(_elem.getAttribute("hour").getValue());
     }
 
     /**
@@ -91,7 +91,7 @@ public class EventImpl implements Event, Comparable {
      */
     public int getPeriod() {
         Attribute a = _elem.getAttribute("period");
-        if (a != null) return new Integer(a.getValue()).intValue();
+        if (a != null) return new Integer(a.getValue()).parseInt(a.getValue());
         return 0;
     }
     /**
