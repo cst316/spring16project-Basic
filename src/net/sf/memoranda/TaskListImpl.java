@@ -112,7 +112,7 @@ public class TaskListImpl implements TaskList {
         el.addAttribute(new Attribute("progress", "0"));
         el.addAttribute(new Attribute("effort", String.valueOf(effort)));
         el.addAttribute(new Attribute("priority", String.valueOf(priority)));
-                
+        
         Element txt = new Element("text");
         txt.appendChild(text);
         el.appendChild(txt);

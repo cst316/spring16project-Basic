@@ -64,6 +64,10 @@ public interface Task {
     String getType();
     void setType(String s);
     
+    void beginRecord();
+    TimeProgRecord getRecord();
+    void setRecord(int x);
+    
     /*Collection getDependsFrom();
     
     void addDependsFrom(Task task);

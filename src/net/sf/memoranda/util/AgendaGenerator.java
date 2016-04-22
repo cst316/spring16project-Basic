@@ -252,7 +252,11 @@ public class AgendaGenerator {
 						+ Local.getString("No Deadline")
 						+ "</p>";		        
 			}
-		}                     
+		}                  
+		t.getRecord().generateString();
+		s+= "<p>"
+				+ t.getRecord().getString()
+				+ "</p>";
 		//>>>>>>> 1.4
 		s += "</li>\n";
 		return s;
