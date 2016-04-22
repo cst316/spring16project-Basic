@@ -13,3 +13,27 @@ Your first steps should be to get your team set up with this code, ensure you ca
 
 Enjoy!
 Dr. Garyyyyyy
+
+This site hosts the Memoranda-Basic project version 1.01
+
+http://www.public.asu.edu/~acarrion/
+
+On top of features listed at this site: http://memoranda.sourceforge.net/overview.html, here are some additional features:
+
+Uses your Default Browser
+Operations that require you to access the internet now use your system’s default browser.
+
+Accurate Reminders
+Memoranda will accurately portray when an assignment is due whether it be months, weeks, or days away.
+
+Louder Sound Notifications
+Event alarms now play a much louder and more noticeable sound making it easier for the user to be alerted of certain events.
+
+More Refined Tool Tips
+Tool tips now spread to more dialog boxes and previously unclear buttons to provide a more helpful user experience.
+
+Task Types
+Users can now create tasks with a type associated with them. Memoranda also prompts users so that they can create types based off certain steps in PSP.
+ 
+Time and Progress Tracking
+This new feature of Memoranda allows you to track the amount of time you spent on making progress for all of your tasks, as well as tracking how much progress you have been getting done in that Memoranda session.
